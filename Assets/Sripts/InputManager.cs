@@ -11,8 +11,8 @@ public class InputManager : MonoBehaviour
         get => _instance;
     }
 
-    public float X_Axis;
-    public float Y_Axis;
+    public float Hor_Axis;
+    public float Ver_Axis;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        X_Axis = Input.GetAxis("Horizontal");
-        Y_Axis = Input.GetAxis("Vertical");
+        Hor_Axis = Input.GetAxis("Horizontal");
+        Ver_Axis = Input.GetAxis("Vertical");
     }
 }
