@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _breakingForce = 300f;
     [SerializeField] private float _acceleration = 500f;
     [SerializeField] private float _turnAngle;
+
+    public PlaneController plane;
+    
     private float currentAccelerantion;
     private float currentBreakingForce;
     private float currentTurnAngle;
@@ -48,6 +51,29 @@ public class PlayerController : MonoBehaviour
 
         if (InputManager.Instance.Ver_Axis != 0)
         {
+            // if (plane.isGround)
+            // {
+            //     if (InputManager.Instance.Ver_Axis > 0)
+            //     {
+            //         _topRight.motorTorque = currentAccelerantion;
+            //         _topLeft.motorTorque = currentAccelerantion;
+            //     }
+            //     else
+            //     {
+            //         _bottomRight.motorTorque = currentAccelerantion;
+            //         _bottomLeft.motorTorque = currentAccelerantion;
+            //     }
+            //
+            //     GetComponent<Rigidbody>().useGravity = true;
+            // }else
+            // {
+            //     if (InputManager.Instance.Ver_Axis > 0)
+            //     {
+            //         transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+            //     }
+            //
+            //     GetComponent<Rigidbody>().useGravity = false;
+            // }
             if (InputManager.Instance.Ver_Axis > 0)
             {
                 _topRight.motorTorque = currentAccelerantion;
@@ -58,6 +84,7 @@ public class PlayerController : MonoBehaviour
                 _bottomRight.motorTorque = currentAccelerantion;
                 _bottomLeft.motorTorque = currentAccelerantion;
             }
+            
         }
         currentTurnAngle = _turnAngle * InputManager.Instance.Hor_Axis;
         _topLeft.steerAngle = currentTurnAngle;
